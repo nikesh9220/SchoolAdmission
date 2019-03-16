@@ -1,6 +1,3 @@
-<?php
- include "header.php"
-?>
 
 <!-- === BEGIN FOOTER === -->
 <div id="base">
@@ -9,7 +6,7 @@
             <!-- Disclaimer -->
             <div class="col-md-4">
                 <h3 class="class margin-bottom-10">Disclaimer</h3>
-                <p>All Parking Does not contain smart mode only saveral configured by latest technology</p>
+                <p>Apply for Admission Get Your Admission.</p>
                 </div>
             <!-- End Disclaimer -->
             <!-- Contact Details -->
@@ -19,10 +16,10 @@
                     <span class="fa-phone">Telephone:</span>+91 7041791111
                     <br>
                     <span class="fa-envelope">Email:</span>
-                    <a href="mailto:info@example.com">admin@paypark.com</a>
+                    <a href="mailto:info@example.com">admin@schooladmission.com</a>
                     <br>
                     <span class="fa-link">Website:</span>
-                    <a href="http://www.example.com">www.payandpark.tk</a>
+                    <a href="#">www.schooladmission.com</a>
                 </p>
                 <p>The Admin,
                     <br>Caspia,
