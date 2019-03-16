@@ -7,7 +7,7 @@
     <!--<![endif]-->
     <head>
         <!-- Title -->
-        <title>Pay and Park</title>
+        <title>School Admission</title>
         <!-- Meta -->
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="">
@@ -36,7 +36,7 @@
                             <strong>Phone:</strong>&nbsp;7041791111
 </div>
                         <div class="col-sm-6 text-right padding-vert-5">
-                            <strong>Email:</strong>&nbsp;admin@paypark.com
+                            <strong>Email:</strong>&nbsp;admin@schooladmission.com
 </div>
                     </div>
                 </div>
