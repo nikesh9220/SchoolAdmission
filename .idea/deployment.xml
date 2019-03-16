@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="xampp on php">
+    <serverData>
+      <paths name="xampp on php">
+        <serverdata>
+          <mappings>
+            <mapping deploy="Pay&amp;Park(Beta)" local="$PROJECT_DIR$" web="/Pay&amp;Park(Beta)" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
