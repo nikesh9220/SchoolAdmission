@@ -45,6 +45,7 @@ if (isset($_POST['fname']) && isset($_POST['password'])){
         $query = "INSERT INTO `user` (FirstName,LastName,Email,MobileNumber,UserType,Password,IsActive ,Address)
         VALUES ('$fname','$lname', '$email', '$phone','$type', '$p',$IsActive,$address)";
 
+
         $result = mysqli_query($connection,$query);
         if(!$result){
             echo mysqli_error($connection);
