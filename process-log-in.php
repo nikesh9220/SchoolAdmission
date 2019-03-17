@@ -12,24 +12,27 @@ $p=md5($password);
 // To protect MySQL injection (more detail about MySQL injection)
 $email = stripslashes($email);
 $password = stripslashes($password);
+$type;
 
-
-$sql="SELECT * FROM user WHERE email='$email' and password='$p'";
+$sql="SELECT * FROM user WHERE Email = '$email' And Password='$p'";
 $result=mysqli_query($connection, $sql);
+if(!$result){
+    echo mysqli_error($connection);
+}
 
-$sql1="SELECT level FROM user WHERE email='$email' and password='$p'";
-$result1=mysqli_query($connection, $sql1);
-if($result1)
+if($result)
 {
-    $row1=mysqli_fetch_assoc($result1);
+    $row1=mysqli_fetch_assoc($result);
     $type=$row1['UserType'];
-
+    //echo "Test $type" ;
+    echo mysqli_error($connection);
 }
 
 
 
+
 // Mysql_num_row is counting table row
-$count=mysqli_num_rows($result);
+//$count=mysqli_num_rows($result);
 
 // If result matched $myusername and $mypassword, table row must be 1 row
 
@@ -48,10 +51,10 @@ if($type== 1){
     $_SESSION["uid"] = $uid;
 //	echo 	$_SESSION["id"];
 //echo "Session variables are set.";
-    header("location:admin");
+    header("location:Admin/index.php");
 
 }
-elseif($count == 1){
+elseif($type == 2){
     while($row = mysqli_fetch_assoc($result))
     {
         $name = $row["FirstName"] + $row["LastName"];
@@ -68,7 +71,26 @@ elseif($count == 1){
     $_SESSION["uid"] = $uid;
 
 //echo "Session variables are set.";
-    header("location:main.php");
+    header("location:Student/index.php");
+}
+else if($type==3){
+    while($row = mysqli_fetch_assoc($result))
+    {
+        $name = $row["FirstName"] + $row["LastName"];
+        $uid= $row["UserId"];
+
+    }
+// Register $myusername, $mypassword and redirect to file "login_success.php"
+// Start the session
+    session_start();
+// Set session variables
+    $_SESSION["email"] = $email;
+    $_SESSION["password"] = $password;
+    $_SESSION["name"] = $name;
+    $_SESSION["uid"] = $uid;
+
+//echo "Session variables are set.";
+    header("location:School/index.php");
 }
 else {
     $str="ERROR";
