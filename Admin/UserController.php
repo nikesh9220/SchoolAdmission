@@ -1,35 +1,36 @@
 <?php
 session_start();
-include "lib/dao.php";
-include "lib/model.php";
+include "../lib/dao.php";
+include "../lib/model.php";
 
 $d = new dao();
 $m = new model();
 extract($_POST);
 extract($_GET);
 
-/*update area*/
+/*update USer*/
 if (isset($_POST['update_user'])) {
 
     $m->set_data('fname', $fname);
     $m->set_data('lname', $lname);
     $m->set_data('userId', $userId);
-
-
-
-
-
-
+    $m->set_data('Email', $Email);
+    $m->set_data('MobileNumber', $MobileNumber);
+    $m->set_data('Address', $Address);
 
     $a = array(
-        'fname' => $m->get_data('lname'),
-        'lname' => $m->get_data('lname'),
+        'FirstName' => $m->get_data('fname'),
+        'LastName' => $m->get_data('lname'),
+        'Email' => $m->get_data('Email'),
+        'MobileNumber' => $m->get_data('MobileNumber'),
+        'Address' => $m->get_data('Address'),
 
     );
 
-    $q=$d->update("user",$a,"userId='$userId'");
+    $q=$d->update("user",$a,"UserId='$userId'");
 
     if ($q > 0) {
+        echo $q;
         header("location:index.php");
     } else {
         echo "error";
@@ -41,28 +42,34 @@ if (isset($_POST['update_user'])) {
 
 
 
-/*insert category*/
-if (isset($_POST['add_area'])) {
+/*insert user*/
+if (isset($_POST['add_user'])) {
 
-    $m->set_data('areaname',$area_name);
-    $m->set_data('cityid',$cat_id);
-
-
-    $n= $_POST["city_name"];
-    $q=$d->select("city","cityname='$n' ","");
-    while ($o=mysqli_fetch_array($q)) {
-
-        $cityid=$o[cityid];
-    }
-
+    $m->set_data('fname', $fname);
+    $m->set_data('lname', $lname);
+    $m->set_data('Email', $Email);
+    $m->set_data('MobileNumber', $MobileNumber);
+    $m->set_data('Address', $Address);
+    $m->set_data('UserType', $UserType);
+    $m->set_data('IsActive', $IsActive);
+    $m->set_data('Password', md5($Password));
     $a = array(
-        'areaname'=>$m->get_data('areaname'),
-        'cityid'=>$cityid,
+        'FirstName' => $m->get_data('fname'),
+        'LastName' => $m->get_data('lname'),
+        'Email' => $m->get_data('Email'),
+        'MobileNumber' => $m->get_data('MobileNumber'),
+        'Address' => $m->get_data('Address'),
+        'UserType' => $m->get_data('UserType'),
+        'IsActive' => $m->get_data('IsActive'),
+        'Password' => $m->get_data('Password'),
+
     );
 
-    $q=$d->insert("area",$a);
+
+
+    $q=$d->insert("user",$a);
     if($q>0){
-        header("location:managearea.php");
+        header("location:index.php");
     } else{
         echo "Error";
     }
@@ -71,11 +78,11 @@ if (isset($_POST['add_area'])) {
 
 /*delete category*/
 
-if (isset($_POST['delete_area'])) {
+if (isset($_POST['DeleteUser'])) {
 
-    $q=$d->delete("area","areaid='$area_id'");
+    $q=$d->delete("user","UserId='$userId'");
     if($q>0){
-        header("location:managearea.php");
+        header("location:index.php");
     } else{
         echo "Error";
     }

@@ -13,8 +13,10 @@ $p=md5($password);
 $email = stripslashes($email);
 $password = stripslashes($password);
 $type;
-
-$sql="SELECT * FROM user WHERE Email = '$email' And Password='$p'";
+$name;
+$uid;
+$role;
+$sql="SELECT * FROM user join usertype on user.UserType=UserType.UserTypeId WHERE Email = '$email' And Password='$p'";
 $result=mysqli_query($connection, $sql);
 if(!$result){
     echo mysqli_error($connection);
@@ -24,6 +26,11 @@ if($result)
 {
     $row1=mysqli_fetch_assoc($result);
     $type=$row1['UserType'];
+    $name=$row1['FirstName'] ;
+    $uid=$row1['UserId'];
+    $role=$row1['Description'];
+    $name=$name .$row1['LastName'];
+
     //echo "Test $type" ;
     echo mysqli_error($connection);
 }
@@ -38,29 +45,28 @@ if($result)
 
 if($type== 1){
 //Name variable
-    while($row = mysqli_fetch_assoc($result))
-    {
-        $name = $row["FirstName"] + $row["LastName"];
-        $uid= $row["UserId"];
-    }
+
+        //$name = $row['FirstName'] + $row["LastName"];
+        //echo $name;
+     //   $uid= $row["UserId"];
+        //echo "Test". $uid;
+       // echo "Role==" .$role;
+
     session_start();
 // Set session variables
     $_SESSION["email"] = $email;
-    $_SESSION["password"] = $password;
+    //$_SESSION["password"] = $password;
     $_SESSION["name"] = $name;
     $_SESSION["uid"] = $uid;
+    $_SESSION["Role"] = $role;
 //	echo 	$_SESSION["id"];
 //echo "Session variables are set.";
+//    echo $name;
     header("location:Admin/index.php");
 
 }
 elseif($type == 2){
-    while($row = mysqli_fetch_assoc($result))
-    {
-        $name = $row["FirstName"] + $row["LastName"];
-        $uid= $row["UserId"];
 
-    }
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 // Start the session
     session_start();
@@ -69,17 +75,11 @@ elseif($type == 2){
     $_SESSION["password"] = $password;
     $_SESSION["name"] = $name;
     $_SESSION["uid"] = $uid;
-
+    $_SESSION["Role"] = $role;
 //echo "Session variables are set.";
     header("location:Student/index.php");
 }
 else if($type==3){
-    while($row = mysqli_fetch_assoc($result))
-    {
-        $name = $row["FirstName"] + $row["LastName"];
-        $uid= $row["UserId"];
-
-    }
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 // Start the session
     session_start();
@@ -88,7 +88,7 @@ else if($type==3){
     $_SESSION["password"] = $password;
     $_SESSION["name"] = $name;
     $_SESSION["uid"] = $uid;
-
+    $_SESSION["Role"] = $role;
 //echo "Session variables are set.";
     header("location:School/index.php");
 }
