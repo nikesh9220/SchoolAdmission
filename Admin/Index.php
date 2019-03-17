@@ -44,11 +44,10 @@
                                 <td><?php echo $data['LastName']; ?></td>
                                 <td><?php echo $data['MobileNumber']; ?></td>
                                 <td><?php echo $data['Email']; ?></td>
-                                <td><?php echo $data['UserId']; ?></td>
                                 <td class="center" style="width: 150px">
 
-                                    <form style="float: left; margin-right: 3px;" action="areacontroller.php" method="post">
-                                        <input type="hidden" name="area_id" value="<?php echo $data['UserId']; ?>">
+                                    <form style="float: left; margin-right: 3px;" action="userController.php" method="post">
+                                        <input type="hidden" name="userId" value="<?php echo $data['UserId']; ?>">
                                         <button class="btn btn-danger"
                                                 name="DeleteUser">Delete</button></form>
 

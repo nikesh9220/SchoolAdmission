@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-md-12">
             <form method="post"
-                  action="areacontroller.php" class="form-horizontal  login_validator" id="form_block_validator">
+                  action="userController.php" class="form-horizontal  login_validator" id="form_block_validator">
                 <div class="form-group row">
                     <div class="col-lg-4  text-lg-right">
-                        <label for="required2" class="form-control-label">Fname *</label>
+                        <label for="required2" class="form-control-label">First Name</label>
                     </div>
                     <?php
                     $i=1;
@@ -34,9 +34,49 @@
 
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-lg-4 text-lg-right">
+                        <label for="email2" class="form-control-label">Email</label>
+                    </div>
+                    <div class="col-lg-4">
+
+                        <input type="text" class="form-control" id="textArea" name="Email" value="<?php echo $data['Email'];  ?>" required></input>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4 text-lg-right">
+                        <label for="email2" class="form-control-label">Mobile Number</label>
+                    </div>
+                    <div class="col-lg-4">
+
+                        <input type="text" class="form-control" id="textArea" name="MobileNumber" value="<?php echo $data['MobileNumber'];  ?>" required></input>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4 text-lg-right">
+                        <label for="email2" class="form-control-label">Address</label>
+                    </div>
+                    <div class="col-lg-4">
+
+                        <input type="textarea" class="form-control" id="textArea" name="Address" value="<?php echo $data['Address'];  ?>" required></input>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4 text-lg-right">
+                        <label for="email2" class="form-control-label">Address</label>
+                    </div>
+                    <div class="col-lg-4">
+
+                        <input type="text" class="form-control" id="textArea" name="Password" value="<?php echo $data['Password'];  ?>" required></input>
+
+                    </div>
+                </div>
                 <div class="form-actions form-group row">
                     <div class="col-lg-4 push-lg-4">
-                        <input type="hidden" name="area_id" value="<?php echo $data['UserId']; } ?>">
+                        <input type="hidden" name="userId" value="<?php echo $data['UserId']; } ?>">
 
 
                         <button type="submit"

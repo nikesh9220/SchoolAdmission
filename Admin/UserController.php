@@ -1,35 +1,30 @@
 <?php
 session_start();
-include "lib/dao.php";
-include "lib/model.php";
+include "../lib/dao.php";
+include "../lib/model.php";
 
 $d = new dao();
 $m = new model();
 extract($_POST);
 extract($_GET);
 
-/*update area*/
+/*update USer*/
 if (isset($_POST['update_user'])) {
 
     $m->set_data('fname', $fname);
     $m->set_data('lname', $lname);
     $m->set_data('userId', $userId);
 
-
-
-
-
-
-
     $a = array(
-        'fname' => $m->get_data('lname'),
-        'lname' => $m->get_data('lname'),
+        'FirstName' => $m->get_data('fname'),
+        'LastName' => $m->get_data('lname'),
 
     );
 
-    $q=$d->update("user",$a,"userId='$userId'");
+    $q=$d->update("user",$a,"UserId='$userId'");
 
     if ($q > 0) {
+        echo $q;
         header("location:index.php");
     } else {
         echo "error";
@@ -71,11 +66,11 @@ if (isset($_POST['add_area'])) {
 
 /*delete category*/
 
-if (isset($_POST['delete_area'])) {
+if (isset($_POST['deleteUser'])) {
 
-    $q=$d->delete("area","areaid='$area_id'");
+    $q=$d->delete("user","UserId='$userId'");
     if($q>0){
-        header("location:managearea.php");
+        header("location:index.php");
     } else{
         echo "Error";
     }
