@@ -5,6 +5,7 @@ include_once  'interface1.php';
 class dao implements interface1 
 {    
     private $conn;
+
     function __construct() 
     {
         //include_once './config.php';
@@ -12,6 +13,7 @@ class dao implements interface1
         $db=new DbConnect();
         $this->conn=$db->connect();
     }
+
 
     //data insert funtion
     function insert($table,$value)
