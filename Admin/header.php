@@ -78,12 +78,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                         {
                             $name = $_SESSION["name"];
                             echo "Welcome &nbsp". $name. " "."";
-                            // if(is_null($_SESSION['tcity']))
-                            //{
-                            //  $city="Anand";
-                            //echo $city;
-                            //}
-//                                echo $_SESSION['tcity'];
+
 
                         }
 
@@ -120,7 +115,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                             </li>
                             <li>
 
-                                <a href="ParkingLotDisplay.php" class="fa-apple" >Manage User</a>                         </li>
+                                <a href="manageUser.php" class="fa-apple" >Manage User</a>                         </li>
 
                             <li><a href="reserv.php"  class="fa-angle-double-right ">Manage School</a>
                             </li>
@@ -129,7 +124,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                                 <a class="fa-table" href="mybooking.php">Manage Area</a></span>
 
                             </li><li>
-                                <a href="process-log-out.php" class="fa-comment ">Logout</a>
+                                <a href="../process-log-out.php" class="fa-comment ">Logout</a>
                             </li>
 
                         </ul>
