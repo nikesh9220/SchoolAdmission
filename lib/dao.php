@@ -178,7 +178,7 @@ class dao implements interface1
             $where= 'where ' .$where;
         }
 
-        $count_data = mysqli_query($this->conn,"SELECT $field,COUNT(*)  FROM $table $where" ) or die(mysqli_error($this->conn));
+        $count_data = mysqli_query($this->conn,"SELECT $field,COUNT(*) as total FROM $table $where" ) or die(mysqli_error($this->conn));
         return $count_data;
 
     }
