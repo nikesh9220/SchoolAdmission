@@ -64,16 +64,7 @@
 
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-lg-4 text-lg-right">
-                        <label for="email2" class="form-control-label">Address</label>
-                    </div>
-                    <div class="col-lg-4">
 
-                        <input type="text" class="form-control" id="textArea" name="Password" value="<?php echo $data['Password'];  ?>" required></input>
-
-                    </div>
-                </div>
                 <div class="form-actions form-group row">
                     <div class="col-lg-4 push-lg-4">
                         <input type="hidden" name="userId" value="<?php echo $data['UserId']; } ?>">

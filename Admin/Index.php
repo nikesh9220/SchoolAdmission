@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-header bg-white"><div class="animate fadeInRightBig"><div class="col-md-9 col-md-offset-2 col-sm-offset-3">
 
-                    <h1  style="background: white" class="login-page"><i class="fa fa-table"> Manage User</i></h1></div>
+                    <h2  style="background: white" class="login-page"><i class="fa fa-table"> Manage User</i></h2></div>
             </div>
             <div class="card-block p-t-25">
                 <div class="">
@@ -26,6 +26,8 @@
                             <th>Last Name</th>
                             <th>Phone </th>
                             <th>Email</th>
+                            <th>User Type</th>
+                            <th>Is Active</th>
                             <th>Action</th>
 
                         </tr>
@@ -33,7 +35,7 @@
                         <tbody>
                         <?php
                         $i=1;
-                        $q=$d->select("user","","");
+                        $q=$d->select("user,userType","user.UserType=UserType.UserTypeId","");
                         while ($data=mysqli_fetch_array($q)) {
 
 
@@ -44,10 +46,15 @@
                                 <td><?php echo $data['LastName']; ?></td>
                                 <td><?php echo $data['MobileNumber']; ?></td>
                                 <td><?php echo $data['Email']; ?></td>
+                                <td><?php echo $data['Description']; ?></td>
+
+                                <td><?php
+                                    $Active=$data['IsActive']==0?"Yes":"No";
+                                    echo $Active ?></td>
                                 <td class="center" style="width: 150px">
 
                                     <form style="float: left; margin-right: 3px;" action="userController.php" method="post">
-                                        <input type="hidden" name="userId" value="<?php echo $data['UserId']; ?>">
+                                        <input type="hidden" name="UserId" value="<?php echo $data['UserId']; ?>">
                                         <button class="btn btn-danger"
                                                 name="DeleteUser">Delete</button></form>
 
