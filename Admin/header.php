@@ -6,7 +6,7 @@ include "../lib/model.php";
 $d = new dao();
 $m = new model();
 
-if (!isset($_SESSION["email"]))
+if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
 {
     echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
 }
