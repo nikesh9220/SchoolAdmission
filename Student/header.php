@@ -6,10 +6,10 @@ include "../lib/model.php";
 $d = new dao();
 $m = new model();
 
-//if (!isset($_SESSION["email"]))
-//{
- //   echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
-//}
+if (!isset($_SESSION["email"]))
+{
+   echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
+}
 ?>
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
