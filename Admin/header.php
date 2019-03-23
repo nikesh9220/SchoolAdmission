@@ -111,13 +111,13 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                     <div class="visible-lg">
                         <ul id="hornavmenu" class="nav navbar-nav">
                             <li>
-                                <a href="main.php" class="fa-home active">Home</a>
+                                <a href="index.php" class="fa-home active">Home</a>
                             </li>
                             <li>
 
                                 <a href="manageUser.php" class="fa-apple" >Manage User</a>                         </li>
 
-                            <li><a href="reserv.php"  class="fa-angle-double-right ">Manage School</a>
+                            <li><a href="manageschool.php"  class="fa-angle-double-right ">Manage School</a>
                             </li>
 
                             <li>
@@ -160,7 +160,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
     <div class="container background-white">
         <div class="row margin-vert-40">
             <!-- Begin Sidebar Menu -->
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="carousel slide testimonials" id="testimonials1">

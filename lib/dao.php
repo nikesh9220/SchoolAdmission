@@ -84,6 +84,15 @@ class dao implements interface1
         $select = mysqli_query($this->conn,"SELECT * FROM $table $where $other") or die(mysqli_error($this->conn));
         return $select;
     }
+    function customSelect($table, $where='', $other='')
+    {
+        if($where != '')
+        {
+            $where= 'where ' .$where;
+        }
+        $select = mysqli_query($this->conn,"$table $where $other") or die(mysqli_error($this->conn));
+        return $select;
+    }
 
     //select funtion display data with DISTINCT  (not show duplicate)
     function select1($table, $column, $where='',$other='')
