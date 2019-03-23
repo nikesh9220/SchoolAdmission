@@ -11,7 +11,7 @@
             <h3 class="panel-title">Manage User</h3>
         </div>
         <div class="panel-body">
-            <button class="btn btn-green" style="margin-bottom: 10px" onclick="location.href='AddUser.Php'"><i class="fa fa-plus-square">Add User</i></button>
+            <button class="btn btn-green " style="margin-bottom: 10px" onclick="location.href='AddUser.Php'"><i class="fa fa-plus-square">Add User</i></button>
 
             <div class="card">
                 <div class="card-header bg-white"><div class="animate fadeInRightBig"><div class="col-md-9 col-md-offset-2 col-sm-offset-3">

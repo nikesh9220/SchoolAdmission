@@ -6,9 +6,11 @@ include "../lib/model.php";
 $d = new dao();
 $m = new model();
 
-if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
+if ($_SESSION["Role"]!="Admin" || !isset($_SESSION["email"]))
 {
-    echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
+
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/schoolAdmission/index.php\">";
+
 }
 ?>
 <!-- === BEGIN HEADER === -->
@@ -111,7 +113,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                     <div class="visible-lg">
                         <ul id="hornavmenu" class="nav navbar-nav">
                             <li>
-                                <a href="index.php" class="fa-home active">Home</a>
+                                <a href="index.php" class="fa-home">Home</a>
                             </li>
                             <li>
 
@@ -166,7 +168,7 @@ if (!isset($_SESSION["email"]) && $_SESSION["Role"]!="Admin")
                         <div class="carousel slide testimonials" id="testimonials1">
                             <!-- Portfolio Item -->
                             <!-- Filter Buttons -->
-                            <?php /*
+                            <?php  /*
 
 
 

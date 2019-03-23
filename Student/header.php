@@ -5,7 +5,12 @@ include "../lib/model.php";
 
 $d = new dao();
 $m = new model();
+if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
+{
 
+    echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/schoolAdmission/index.php\">";
+
+}
 //if (!isset($_SESSION["email"]))
 //{
  //   echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
@@ -129,7 +134,7 @@ $m = new model();
                                 <a class="fa-table" href="mybooking.php">Manage Area</a></span>
 
                             </li><li>
-                                <a href="process-log-out.php" class="fa-comment ">Logout</a>
+                                <a href="../process-log-out.php" class="fa-comment ">Logout</a>
                             </li>
 
                         </ul>
