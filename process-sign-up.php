@@ -1,6 +1,6 @@
 <?php
 echo "done";
-require('inc\dbcon.php');
+require("inc\dbcon.php");
 // If the values are posted, insert them into the database
 if (isset($_POST['fname']) && isset($_POST['password'])){
     $fname = $_POST['fname'];
@@ -9,9 +9,9 @@ if (isset($_POST['fname']) && isset($_POST['password'])){
     $password = $_POST['password'];
     $cpassword =$_POST['cpassword'];
     $phone = $_POST['phone'];
-    $type='2';
+    $type=2;
     $address=$_POST['address'];
-   // echo $fname;
+    // echo $fname;
     //echo $phone;
     //check existence
     $sql="SELECT * FROM user WHERE email='$email'";
@@ -43,7 +43,11 @@ if (isset($_POST['fname']) && isset($_POST['password'])){
         $p=md5($password);
         echo $p;
         $query = "INSERT INTO `user` (FirstName,LastName,Email,MobileNumber,UserType,Password,IsActive ,Address)
+<<<<<<< HEAD
+        VALUES ('$fname','$lname', '$email', '$phone','$type','$p','$IsActive','$address')";
+=======
         VALUES ('$fname','$lname', '$email', '$phone','$type', '$p','$IsActive','$address')";
+>>>>>>> 6ccbdf2be13aa13b926a57fe8a11aa2979127090
 
 
         $result = mysqli_query($connection,$query);

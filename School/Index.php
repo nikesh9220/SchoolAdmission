@@ -1,6 +1,6 @@
 
 <?php include "header.php" ?>
-    <!-- BEGIN EXAMPLE1 TABLE PORTLET-->
+<!-- BEGIN EXAMPLE1 TABLE PORTLET-->
 <div class="row">
     <div class="col-md-5 ">
         <!-- Primary Panel -->
@@ -24,17 +24,17 @@
 
                     <br>
                 </div>
-<div class="col-md-12">
+                <div class="col-md-12">
     <span class="fa-stack fa-lg">
                 <i class="fa fa-square-o fa-stack-2x"></i>
                 <i class="fa fa-user fa-stack-1x"></i>
             </span><br\>
-    <?php
-    $q=$d->count_data("UserId","user","IsActive=1");
-    $r=mysqli_fetch_assoc($q);
-    ?>
-    <br\><span>Number Of Student</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-</div>
+                    <?php
+                    $q=$d->count_data("UserId","user","IsActive=1");
+                    $r=mysqli_fetch_assoc($q);
+                    ?>
+                    <br\><span>Number Of Student</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
+                </div>
                 <div class="col-md-12">
     <span class="fa-stack fa-lg">
                 <i class="fa fa-square-o fa-stack-2x"></i>
@@ -47,13 +47,13 @@
                     <br\><span>Number Of Student</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
                 </div>
 
-    </div>
+            </div>
 
 
         </div>
 
     </div>
-        <!-- End Primary Panel -->
+    <!-- End Primary Panel -->
     <div class="col-md-5 ">
         <!-- Primary Panel -->
         <div class="panel panel-info">
