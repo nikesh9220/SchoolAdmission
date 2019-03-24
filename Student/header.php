@@ -121,19 +121,15 @@ if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
                     <div class="visible-lg">
                         <ul id="hornavmenu" class="nav navbar-nav">
                             <li>
-                                <a href="main.php" class="fa-home active">Home</a>
+                                <a href="Index.php" class="fa-home active">Home</a>
                             </li>
                             <li>
 
-                                <a href="ParkingLotDisplay.php" class="fa-apple" >Manage User</a>                         </li>
-
-                            <li><a href="reserv.php"  class="fa-angle-double-right ">Manage School</a>
+                                <a href="ApplicationHistory.php" class="fa-apple" >
+                                    Application History
+                                </a>
                             </li>
-
                             <li>
-                                <a class="fa-table" href="mybooking.php">Manage Area</a></span>
-
-                            </li><li>
                                 <a href="../process-log-out.php" class="fa-comment ">Logout</a>
                             </li>
 

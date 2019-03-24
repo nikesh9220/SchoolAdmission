@@ -34,7 +34,7 @@ $applicationResult = mysqli_query($connection,$applicationQuery) or die(mysqli_e
 
 $applicationHistroy =mysqli_fetch_array($applicationResult);
 
-$applicationCount = mysqli_num_rows($applicationHistroy);
+$applicationCount = mysqli_num_rows($applicationResult);
 
 ?>
 
@@ -47,8 +47,8 @@ while ($data=mysqli_fetch_array($q))
     <div class="panel-heading">
         <h3 class="panel-title">
             <?php echo $data['Name']?>
-        </h3>
-        <?php if(!in_array($data['SchoolId'],$applicationHistroy))
+
+        <?php if(in_array($data['SchoolId'],$applicationHistroy))
          {
              echo '<span class="btn btn-bronze btn-xs pull-right">Applied</span>';
          }else if($applicationCount < 3)
@@ -61,6 +61,7 @@ while ($data=mysqli_fetch_array($q))
                echo '<span class="pull-right">You have reached your application limit!! </span>';
            }
            ?>
+        </h3>
 
     </div>
     <div class="panel-body">
