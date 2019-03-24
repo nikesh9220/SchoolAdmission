@@ -26,14 +26,17 @@ $currentUserId = $_SESSION["uid"];
 
 $applicationQuery = "select SchoolId from application where UserId='$currentUserId'";
 
+
+
 $q = mysqli_query($connection,$query) or die(mysqli_error($connection));
 
 $applicationResult = mysqli_query($connection,$applicationQuery) or die(mysqli_error($connection));
 
 $applicationHistroy =mysqli_fetch_array($applicationResult);
 
-?>
+$applicationCount = mysqli_num_rows($applicationHistroy);
 
+?>
 
 <?php
 
@@ -43,15 +46,21 @@ while ($data=mysqli_fetch_array($q))
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-
-            <?php echo $data['Name']?></h3>
-        <?php if(!in_array($data['SchoolId'],$applicationHistroy)  )
+            <?php echo $data['Name']?>
+        </h3>
+        <?php if(!in_array($data['SchoolId'],$applicationHistroy))
          {
              echo '<span class="btn btn-bronze btn-xs pull-right">Applied</span>';
-         }else
+         }else if($applicationCount < 3)
              {?>
                      <a href="SchoolApplication.php?schoolId=<?php echo $data['SchoolId']?>" class="btn btn-info btn-xs pull-right">Apply</a>
-       <?php } ?>
+       <?php
+             }
+            else
+           {
+               echo '<span class="pull-right">You have reached your application limit!! </span>';
+           }
+           ?>
 
     </div>
     <div class="panel-body">

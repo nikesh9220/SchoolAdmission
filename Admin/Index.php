@@ -1,82 +1,40 @@
 
 <?php include "header.php" ?>
-<section class="table-responsive">
-    <?php
-
-   ?>
-
     <!-- BEGIN EXAMPLE1 TABLE PORTLET-->
-    <div class="card">
-        <div class="card-header bg-white"><div class="animate fadeInRightBig"><div class="col-md-9 col-md-offset-2 col-sm-offset-3">
-
-                    <h1  style="background: white" class="login-page"><i class="fa fa-table"> Manage User</i></h1></div>
+<div class="row">
+    <div class="col-md-6 ">
+        <!-- Primary Panel -->
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">User</h3>
             </div>
-            <div class="card-block p-t-25">
-                <div class="">
-                    <div class="pull-sm-right">
-                        <div class="tools pull-sm-right"></div>
-                    </div>
-                </div><div class="animate fadeInLeftBig">
-                    <table class="table table-striped table-bordered table-hover" id="sample_1">
+            <div class="panel-body" >
+                <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-user fa-stack-1x"></i>
+                </span>
+    <?php
+    $q=$d->count_data("UserId","user","");
+    $r=mysqli_fetch_assoc($q);
+    ?>
+    <span>Number Of User</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
 
-                        <thead>
-                        <tr>
-                            <th>Sr.No</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Phone </th>
-                            <th>Email</th>
-                            <th>Action</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $i=1;
-                        $q=$d->select("user","","");
-                        while ($data=mysqli_fetch_array($q)) {
-
-
-                            ?>
-                            <tr>
-                                <td><?php echo $i++; ?></td>
-                                <td><?php echo $data['FirstName']; ?></td>
-                                <td><?php echo $data['LastName']; ?></td>
-                                <td><?php echo $data['MobileNumber']; ?></td>
-                                <td><?php echo $data['Email']; ?></td>
-                                <td><?php echo $data['UserId']; ?></td>
-                                <td class="center" style="width: 150px">
-
-                                    <form style="float: left; margin-right: 3px;" action="areacontroller.php" method="post">
-                                        <input type="hidden" name="area_id" value="<?php echo $data['UserId']; ?>">
-                                        <button class="btn btn-danger"
-                                                name="DeleteUser">Delete</button></form>
-
-                                    <form action="EditUser.php" method="post">
-                                        <input type="hidden" name="UserId" value="<?php echo $data['UserId']; ?>">
-                                        <button  class="btn btn-primary"
-                                                 name="User_Id">Edit</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-
-                    </table>
-                </div>
+<br>
+    <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-user fa-stack-1x"></i>
+            </span><br\>
+    <?php
+    $q=$d->count_data("UserId","user","IsActive=1");
+    $r=mysqli_fetch_assoc($q);
+    ?>
+    <br\><span>Number Of Active User</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
+<br><a class="btn-block" href="ManageUser.Php" style="margin: 5px;margin-right:15px "><i class="fa fa-external-link">  Manage User</i></a>
+   </div>
 
 
-            </div>
         </div>
 
-
-
-
-
-        <?php include "footer.php" ?>
-
-
-
-
-
-
+    </div>
+        <!-- End Primary Panel -->
+</div>

@@ -46,11 +46,19 @@ if($result)
 if($type== 1){
 //Name variable
 
+<<<<<<< HEAD
     //$name = $row['FirstName'] + $row["LastName"];
     //echo $name;
     //   $uid= $row["UserId"];
     //echo "Test". $uid;
     // echo "Role==" .$role;
+=======
+        //$name = $row['FirstName'] + $row["LastName"];
+        //echo $name;
+     //   $uid= $row["UserId"];
+        //echo "Test". $uid;
+       // echo "Role==" .$role;
+>>>>>>> 6ccbdf2be13aa13b926a57fe8a11aa2979127090
 
     session_start();
 // Set session variables

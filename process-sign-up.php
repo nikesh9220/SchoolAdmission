@@ -43,7 +43,11 @@ if (isset($_POST['fname']) && isset($_POST['password'])){
         $p=md5($password);
         echo $p;
         $query = "INSERT INTO `user` (FirstName,LastName,Email,MobileNumber,UserType,Password,IsActive ,Address)
+<<<<<<< HEAD
         VALUES ('$fname','$lname', '$email', '$phone','$type','$p','$IsActive','$address')";
+=======
+        VALUES ('$fname','$lname', '$email', '$phone','$type', '$p','$IsActive','$address')";
+>>>>>>> 6ccbdf2be13aa13b926a57fe8a11aa2979127090
 
 
         $result = mysqli_query($connection,$query);
