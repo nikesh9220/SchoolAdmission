@@ -125,7 +125,7 @@ if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
                             </li>
                             <li>
 
-                                <a href="ApplicationHistory.php" class="fa-apple" >
+                                <a id="applicationHistory" href="ApplicationHistory.php" class="fa-apple" >
                                     Application History
                                 </a>
                             </li>

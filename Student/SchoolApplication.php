@@ -22,13 +22,14 @@ if(mysqli_num_rows($questionResult) >0)
 
 <form method="post" action="SaveSchoolApplication.php?schoolId=<?php echo $schoolId ?>">
 <?php $i=0;
+$j=1;
 
 while($question =mysqli_fetch_array($questionResult)){
 ?>
-    <div class="col-md-12">
+    <div class="col-md-8">
         <div class="col-md-6">
             <div class="col-md-10">
-              <label><?php  echo $question['Question'] ?></label>
+              <label><?php  echo $j.'.' . $question['Question'] ?></label>
 
                 <input type="text" name="Response[]"/>
                 <input type="hidden" name="QuestionId[]" value="<?php  echo $question['SchoolApplicationQuestionId'] ?>"/>
@@ -42,7 +43,7 @@ while($question =mysqli_fetch_array($questionResult)){
         </div>
     </div>
     <br/>
-<?php  $i++; } ?>
+<?php  $i++; $j++; } ?>
 
     <div class="col-md-12"></div>
 
