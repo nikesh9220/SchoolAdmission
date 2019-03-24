@@ -13,7 +13,7 @@ if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
 }
 //if (!isset($_SESSION["email"]))
 //{
- //   echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
+//   echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/paypark/index.php\">";
 //}
 ?>
 <!-- === BEGIN HEADER === -->
@@ -170,7 +170,7 @@ if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
     <div class="container background-white">
         <div class="row margin-vert-40">
             <!-- Begin Sidebar Menu -->
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="carousel slide testimonials" id="testimonials1">

@@ -7,33 +7,60 @@ include_once '../lib/dbconnect.php';
 
 $db = new dbconnect();
 $connection = $db->connect();
+
+$currentUserId = $_SESSION["uid"];
+
 ?>
-
-
 <?php
-                        $i=1;
+
                         $query = "select school.Name,
+                                          school.SchoolId,
                                           division.Description as Division,
                                           schooltype.Description as SchoolType,
                                           schoolspecialization.Description as SchoolSpecialization,
                                           school.Address,
                                           school.Phone from  school as school 
-                                    Inner join division as division on school.SchoolId = division.DivisionId
+                                    Inner join division as division on school.DivisionId = division.DivisionId
                                     INNER  JOIN  schooltype as schooltype on school.SchoolTypeId = schooltype.SchoolTypeId
                                     INNER  JOIN  schoolspecialization as schoolspecialization on school.SchoolSpecializationId = schoolspecialization.SchoolSpecializationId";
-                        //$q=$d->select("school,division,schoolspecialization,schooltype"," && school.DivisionId=division.DivisionId,school.SchoolTypeId=schooltype.SchoolTypeId","");
+
+$applicationQuery = "select SchoolId from application where UserId='$currentUserId'";
+
+
 
 $q = mysqli_query($connection,$query) or die(mysqli_error($connection));
-?>
 
+$applicationResult = mysqli_query($connection,$applicationQuery) or die(mysqli_error($connection));
+
+$applicationHistroy =mysqli_fetch_array($applicationResult);
+
+$applicationCount = mysqli_num_rows($applicationHistroy);
+
+?>
 
 <?php
 
-while ($data=mysqli_fetch_array($q)) {
+while ($data=mysqli_fetch_array($q))
+{
 ?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $data['Name']?></h3>
+        <h3 class="panel-title">
+            <?php echo $data['Name']?>
+        </h3>
+        <?php if(!in_array($data['SchoolId'],$applicationHistroy))
+         {
+             echo '<span class="btn btn-bronze btn-xs pull-right">Applied</span>';
+         }else if($applicationCount < 3)
+             {?>
+                     <a href="SchoolApplication.php?schoolId=<?php echo $data['SchoolId']?>" class="btn btn-info btn-xs pull-right">Apply</a>
+       <?php
+             }
+            else
+           {
+               echo '<span class="pull-right">You have reached your application limit!! </span>';
+           }
+           ?>
 
     </div>
     <div class="panel-body">
