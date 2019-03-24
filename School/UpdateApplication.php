@@ -21,7 +21,7 @@ if($result)
 else
 {
     echo '<sapn>Operation Failed !!Please Try Again</sapn><br/>';
-    echo '<a class="btn btn-danger pull-right" href="UpdateApplication.php?status='.$status.'&applicationId="'. $applicationId.'" >Accept Application</a>';
+    echo '<a class="btn btn-danger pull-right" href="UpdateApplication.php?status='.$status.'&applicationId="'. $applicationId.'" >Try Again</a>';
 }
 
 ?>
