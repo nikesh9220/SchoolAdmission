@@ -123,7 +123,7 @@ if ($_SESSION["Role"]!="Admin" || !isset($_SESSION["email"]))
                             </li>
 
                             <li>
-                                <a class="fa-table" href="mybooking.php">Manage Area</a></span>
+                                <a class="fa-table" href="report.php">Report</a></span>
 
                             </li><li>
                                 <a href="../process-log-out.php" class="fa-comment ">Logout</a>
