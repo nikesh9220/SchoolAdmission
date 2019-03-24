@@ -130,6 +130,12 @@ if ($_SESSION["Role"]!="Student" || !isset($_SESSION["email"]))
                                 </a>
                             </li>
                             <li>
+
+                                <a  href="EditInfo.php?UserId=<?php echo $_SESSION["uid"] ?>" class="fa-apple" >
+                                    Edit Profile
+                                </a>
+                            </li>
+                            <li>
                                 <a href="../process-log-out.php" class="fa-comment ">Logout</a>
                             </li>
 

@@ -1,108 +1,88 @@
 
-<?php include "header.php" ?>
+<?php
+include "header.php" ;
+include "footer.php";
+
+include_once '../lib/dbconnect.php';
+
+$db = new dbconnect();
+$connection = $db->connect();
+
+$schoolQuery = 'SELECT count(ApplicationId) as counts,SchoolId from application GROUP By SchoolId';
+
+$schoolResult = mysqli_query($connection,$schoolQuery ) or die (mysqli_error($connection));
+
+while ($data=mysqli_fetch_array($schoolResult)) {
+
+    $schoolListQuery = "SELECT * from school HAVING SchoolId=". $data["SchoolId"] ;
+    $schoolListQueryResult = mysqli_query($connection,$schoolListQuery) or die (mysqli_error($connection));
+
+    while($school = mysqli_fetch_array($schoolListQueryResult))
+    {
+?>
+        <div class="panel panel-blue">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <?php echo  $school['Name']; ?>
+                    <span class="label label-primary pull-right">No of Applications = <?php echo  $data["counts"] ?> </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" >
+                    <thead>
+                    <th>Applicant Name </th>
+                    <th>Submission Date </th>
+                    <th>Application Status</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                <?php
+                    $schoolApplicationsQuery = 'SELECT application.ApplicationId as  ApplicationId,
+                                            u.FirstName as FirstName,
+                                            u.LastName as LastName,
+                                            application.ApplicationDate,
+                                            application.ApplicationStatus,
+                                            application.SchoolId as SchoolId
+                                            from application as application
+                                            INNER JOIN user u on u.UserId = application.UserId
+                                            INNER JOIN school s on application.SchoolId = s.SchoolId
+                                            where application.SchoolId = ' . $data["SchoolId"] . ' order by ApplicationDate';
+
+                    //echo 'applicQuer= ' . $schoolApplicationsQuery.'<br/>';
+
+                $schoolApplicationsQueryResult = mysqli_query($connection,$schoolApplicationsQuery) or die (mysqli_error($connection));
+
+                    while($appliction = mysqli_fetch_array($schoolApplicationsQueryResult))
+                    { ?>
+<tr>
+    <td> <?php echo $appliction['FirstName'].' '. $appliction['LastName'] ?></td>
+    <td> <?php echo date("Y-m-d", strtotime($appliction['ApplicationDate'])); ?></td>
+    <td> <?php
+
+        if($appliction['ApplicationStatus'] ==0)
+        {
+            printf('<span class="label label-warning">%s</span>',"Pending");
+        }
+        elseif ($appliction['ApplicationStatus'] ==1 )
+        {
+            printf('<span class="label label-success">%s</span>',"Accepted");
+        }
+        elseif($appliction['ApplicationStatus'])
+        {
+            printf('<span class="label label-danger">%s</span>',"Rejected");
+        }
+        ?></td>
+    <td><?php printf('<a href="ViewApplication.php?applicationId=%s" class="btn btn-info">View Application</a>',$appliction['ApplicationId']); ?></td>
+</tr>
+                     <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+<?php
+    }
+}
+?>
 <!-- BEGIN EXAMPLE1 TABLE PORTLET-->
-<div class="row">
-    <div class="col-md-5 ">
-        <!-- Primary Panel -->
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">User</h3>
-            </div>
-            <div class="panel-body" >
-                <div class="col-md-12" ><button class="btn btn-green" onclick="location.href='ManageUser.Php'"><i class="fa-asterisk">Manage User</i></button>
-                </div>
-                <div class="col-md-12" style="margin-top: 10px">
-                <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-                </span>
-                    <?php
-                    $q=$d->count_data("UserId","user","");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <span>Number Of User</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-
-                    <br>
-                </div>
-                <div class="col-md-12">
-    <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-            </span><br\>
-                    <?php
-                    $q=$d->count_data("UserId","user","IsActive=1");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <br\><span>Number Of Student</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-                </div>
-                <div class="col-md-12">
-    <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-            </span><br\>
-                    <?php
-                    $q=$d->count_data("UserId","user,usertype","user.usertype=usertype.usertypeid AND Description like '%Student%'");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <br\><span>Number Of Student</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-    <!-- End Primary Panel -->
-    <div class="col-md-5 ">
-        <!-- Primary Panel -->
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">School</h3>
-            </div>
-            <div class="panel-body" >
-                <div class="col-md-12" ><button class="btn btn-green" onclick="location.href='ManageSchool.Php'"><i class="fa-asterisk">Manage School</i></button>
-                </div>
-                <div class="col-md-12" style="margin-top: 10px">
-                <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-                </span>
-                    <?php
-                    $q=$d->count_data("SchoolId","school","");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <span>Number Of School</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-
-                    <br>
-                </div>
-                <div class="col-md-12">
-    <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-            </span><br\>
-                    <?php
-                    $q=$d->count_data("SchoolId","school,SchoolSpecialization","school.SchoolSpecializationId=SchoolSpecialization.SchoolSpecializationId AND Description like '%Music%'");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <br\><span>Number Music School</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-                </div>
-                <div class="col-md-12">
-    <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-user fa-stack-1x"></i>
-            </span><br\>
-                    <?php
-                    $q=$d->count_data("SchoolId","school,SchoolSpecialization","school.SchoolSpecializationId=SchoolSpecialization.SchoolSpecializationId AND Description like '%Sports%'");
-                    $r=mysqli_fetch_assoc($q);
-                    ?>
-                    <br\><span>Number Sports School</span> <span type="span" class="label label-info"><?php echo $r['total']; ?></span>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-</div>
