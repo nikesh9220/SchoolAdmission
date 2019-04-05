@@ -48,7 +48,7 @@
                     <div class="row">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html" title="">
+                            <a href="index.php" title="">
                                 <img src="assets/img/typo/logo3.png" alt="Logo" />
                             </a>
                         </div>
@@ -72,9 +72,7 @@
                                     </li>
                                     <li><a href="signup.php"  class="fa-angle-double-right ">Sign Up</a>
                                                                             </li>
-                                                                       <li>
-                                        <a href="contact.html" class="fa-comment ">Contact</a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>

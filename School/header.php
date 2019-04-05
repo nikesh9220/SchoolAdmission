@@ -115,17 +115,11 @@ if ($_SESSION["Role"]!="School Clerk" || !isset($_SESSION["email"]))
                                 <li>
                                     <a href="index.php" class="fa-home">Home</a>
                                 </li>
-                                <li>
 
-                                    <a href="manageUser.php" class="fa-apple" >Manage User</a>                         </li>
-
-                                <li><a href="manageschool.php"  class="fa-angle-double-right ">Manage School</a>
+                                <li><a href="ViewSchool.php"  class="fa-angle-double-right ">Manage School</a>
                                 </li>
 
-                                <li>
-                                    <a class="fa-table" href="mybooking.php">Manage Area</a></span>
-
-                                </li><li>
+                               <li>
                                     <a href="../process-log-out.php" class="fa-comment ">Logout</a>
                                 </li>
 

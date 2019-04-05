@@ -26,19 +26,19 @@ include "header.php"?>
                 <!-- Carousel Images -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="assets/img/slideshow/coding.png">
+                        <img src="assets/img/slideshow/1.jpeg">
                     </div>
                     <div class="item">
-                        <img src="assets/img/slideshow/p1.jpg">
+                        <img src="assets/img/slideshow/2.jpeg">
                     </div>
                     <div class="item">
-                        <img src="assets/img/slideshow/slide3.jpg">
+                        <img src="assets/img/slideshow/3.jpg">
                     </div>
                     <div class="item">
-                        <img src="assets/img/slideshow/earth.png">
+                        <img src="assets/img/slideshow/4.jpg">
                     </div>
                     <div class="item">
-                        <img src="assets/img/slideshow/phone.png">
+                        <img src="assets/img/slideshow/5.JPG">
                     </div>
                 </div>
                 <!-- End Carousel Images -->
@@ -57,10 +57,9 @@ include "header.php"?>
                     <div class="row margin-vert-30">
                         <!-- Main Text -->
                         <div class="col-md-6">
-                            <h2>Welcome to Pay & Park</h2>
-                            <p>Pay and Park is Next Generation Parking System.That Provide Efficent Way to Manage Parking.</p>
-                            <p>This Project Is Made By Final Year Students of G H Patel College of Engineering and Technology.
-                                This Project is suitable for smart city planning.</p>
+                            <h2>Welcome to OES</h2>
+                            <p>The Ontario Education Services Corporation (OESC). OESC offers suite of services to many Ontario education partners. We offer unique, relevant, and timely programs and resources. We do so with a focus on the success of every student being nurtured and educated in Ontario's public school system.</p>
+                            <p>As you review past and current services, please remember our invitation to offer assistance to your Board or organization. Our track record in customizing learning modules, in matters of business services, governance, and program has been a strength due to our understanding of the needs and experiences in the education sector.</p>
                         </div>
                         <!-- End Main Text -->
                         <div class="col-md-6">
@@ -68,60 +67,13 @@ include "header.php"?>
                             <p>Following Functionality Provided By System.</p>
                             <ul class="tick animate fadeInRight">
                                 <li>24*7 Available</li>
-                                <li>Smart Mode</li>
-                                <li>Normal Mode</li>
-                                <li>Booking</li>
+                                <li>72 Onterion Schools</li>
+                                <li>Qulity Training Program</li>
+                                <li>Admission</li>
                                 <li>Admin Panel</li>
-                                <li>Cashless Transactions</li>
+                                <li>Online Application</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div id="portfolio" class="bottom-border-shadow">
-                <div class="container bottom-border">
-                    <div class="row padding-top-40">
-                        <ul class="portfolio-group">
-                            <!-- Portfolio Item -->
-                            <li class="portfolio-item col-sm-4 col-xs-2 margin-bottom-40">
-                                <a href="#">
-                                    <figure class="animate fadeInLeft">
-                                        <img alt="image1" src="assets/img/frontpage/ARDUINO_UNO_A01.jpg">
-                                        <figcaption>
-                                            <h3>Arduino Uno</h3>
-                                            <span>The Arduino Uno is a microcontroller board based on the ATmega328 (datasheet). </span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <!-- //Portfolio Item// -->
-                            <!-- Portfolio Item -->
-                            <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40">
-                                <a href="#">
-                                    <figure class="animate fadeIn">
-                                        <img alt="image2" src="assets/img/frontpage/ethernet.jpg">
-                                        <figcaption>
-                                            <h3>Ethernet Shield</h3>
-                                            <span>The Arduino Ethernet Shield 2 allows an Arduino Board to connect to the internet.</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <!-- //Portfolio Item// -->
-                            <!-- Portfolio Item -->
-                            <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40">
-                                <a href="#">
-                                    <figure class="animate fadeInRight">
-                                        <img alt="image3" src="assets/img/frontpage/sensor.jpg">
-                                        <figcaption>
-                                            <h3>Ultrasonic Sensor</h3>
-                                            <span>An Ultrasonic sensor is a device that can measure the distance to an object by using sound waves.</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <!-- //Portfolio Item// -->
-                        </ul>
                     </div>
                 </div>
             </div>

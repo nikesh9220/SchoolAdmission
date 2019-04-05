@@ -24,7 +24,7 @@
                 <p>The Admin,
                     <br>Caspia,
                     <br>Blossom Aura,
-                    <br>Nadiad</p>
+                    <br>Onterio</p>
             </div>
             <!-- End Contact Details -->
             <!-- Sample Menu -->
@@ -41,7 +41,7 @@
                         <a class="fa-signal" href="#">Mostly Used</a>
                     </li>
                     <li>
-                        <a class="fa-coffee" href="#">Smart Parking</a>
+                        <a class="fa-coffee" href="#">10,000+ Application</a>
                     </li>
                 </ul>
                 <div class="clearfix"></div>
@@ -58,7 +58,7 @@
             <!-- End Footer Menu -->
             <!-- Copyright -->
             <div id="copyright" class="col-md-4">
-                <p class="pull-right"> &nbsp; &nbsp; &nbsp; &nbsp &nbsp(c) 2018 Pay & Park</p>
+                <p class="pull-right"> &nbsp; &nbsp; &nbsp; &nbsp &nbsp(c) 2019 OES</p>
             </div>
             <!-- End Copyright -->
         </div>
