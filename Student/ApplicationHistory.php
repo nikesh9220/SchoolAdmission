@@ -10,8 +10,11 @@ $connection = $db->connect();
 $currentUserId = $_SESSION["uid"];
 
 $applicationQuery = "select * from application as application
-                        INNER JOIN school on application.SchoolId = school.SchoolId  
-                        where UserId='$currentUserId'";
+                         INNER JOIN school on application.SchoolId = school.SchoolId  
+                         where UserId in (Select UserId from user where UserId = '$currentUserId')";
+						
+						
+
 
 $applicationResult = mysqli_query($connection,$applicationQuery) or die(mysqli_error($connection));
 
