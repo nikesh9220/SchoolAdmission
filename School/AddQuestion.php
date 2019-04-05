@@ -16,12 +16,10 @@
                                class="form-control"
                                required>
                     </div>
-                    <div class="col-lg-3 text-lg-right">
-                        <label for="email2" class="form-control-label">Instruction</label>
-                    </div>
+                    
                     <div class="col-lg-3">
 
-                        <input type="text" class="form-control" id="textArea" name="QuestionInstruction"></input>
+                        
                         <input type="hidden" class="form-control" id="textArea" name="SchoolId" value="<?php echo $_GET['School_Id'] ?>"></input>
 
                     </div>

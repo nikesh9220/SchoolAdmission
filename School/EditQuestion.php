@@ -25,14 +25,7 @@
                                class="form-control"
                                value="<?php echo $data['Question']; ?> "required>
                     </div>
-                    <div class="col-lg-3 text-lg-right">
-                        <label for="email2" class="form-control-label">Instruction</label>
-                    </div>
-                    <div class="col-lg-3">
-
-                        <input type="text" class="form-control" id="textArea" name="QuestionInstruction" value="<?php echo $data['QuestionInstruction'];  ?>"   ></input>
-
-                    </div>
+                    
                 </div>
 
 

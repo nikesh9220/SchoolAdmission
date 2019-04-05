@@ -35,8 +35,12 @@
                                     <tbody>
                                     <?php
                                     $i=1;
-                                    $q=$d->select("application,user,school","application.schoolid=school.schoolid AND application.userid=user.userid","");
-                                    while ($data=mysqli_fetch_array($q)) {
+									
+									
+									
+                                    // $q=$d->select("application,user,school","application.schoolid=school.schoolid AND application.userid=user.userid","order by application.applicationid desc");
+									$q=$d->select("report","","");                                   
+								   while ($data=mysqli_fetch_array($q)) {
 
 
                                         ?>

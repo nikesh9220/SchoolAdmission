@@ -28,7 +28,7 @@
                                     <tr>
                                         <th>Sr.No</th>
                                         <th>Question</th>
-                                        <th>Instruction</th>
+                                       
                                         <th>Action</th>
                                         </tr>
                                     </thead>
@@ -44,13 +44,7 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $data['Question']; ?></td>
-                                            <td><?php  if($data['QuestionInstruction']==''){
-                                                echo "N/A";
-                                                }
-                                                else{
-                                                echo $data['QuestionInstruction'];
-
-                                                }?></td>
+                                           
 
                                             <td class="center" style="width: 150px">
 

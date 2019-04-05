@@ -2,7 +2,8 @@
 <?php include "header.php" ?>
 <section class="table-responsive">
     <?php
-
+		$db = new dbconnect();
+		$connection = $db->connect();
     ?>
 
     <!-- BEGIN EXAMPLE1 TABLE PORTLET-->
@@ -40,7 +41,7 @@
                                 <tbody>
                                 <?php
                                 $i=1;
-                                $q=$d->select("user,userType","user.UserType=UserType.UserTypeId","");
+                                $q=mysqli_query($connection,"select * from user as user inner join userType as userType on user.UserType = userType.UserTypeId Where user.UserType = 1 OR user.UserType =2 OR user.UserType =3") or die (mysqli_error($connection)); 
                                 while ($data=mysqli_fetch_array($q)) {
 
 
